@@ -1,0 +1,26 @@
+.m-header{
+    width: 100% !important;
+}
+.center{
+    text-align: center;
+}
+.avatar-medium{
+    height: 86px;
+    width: 86px;
+    border-radius: 86px;
+    margin: 10px;
+}
+.m-header p{
+    color: rgb(66, 66, 66);
+}
+.details{
+    text-align: center;
+    margin: 20px 0px;
+}
+.details h5{
+    display: inline;
+    margin-right: 10px;
+}
+.details p{
+    display: inline ;
+}

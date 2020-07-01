@@ -1,0 +1,37 @@
+.form{
+    max-width: 600px;
+    min-width: 360px;
+    margin: auto;
+    margin-top: 80px !important;
+    margin-bottom: 100px !important;
+    padding: 60px;
+    background-color: rgb(245,245,245);
+}
+h3{
+    padding-bottom: 20px;
+}
+
+.msg {
+    padding-top: 20px;
+}
+.msg p{
+    display: inline;
+}
+.msg a{
+    display: inline;
+}
+
+.msg-top{
+    padding-bottom: 30px;
+}
+.msg-top h5{
+    padding-bottom: 20px;
+}
+
+.link {
+    color: rgb(114, 62, 173);
+    cursor: pointer;
+}
+.link:hover {
+    color: rgb(41, 22, 63);
+}

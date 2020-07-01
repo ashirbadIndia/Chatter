@@ -1,0 +1,27 @@
+.messenger {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  background: #eeeef1;
+}
+.scrollable {
+  position: relative;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.field-height{
+  height: 62px ;
+}
+.message-box{
+  height: calc(100vh - 56px) ;
+}
+.message-body{
+  height: calc(100vh - 214px) ;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 10px;
+  border: 3px solid rgb(250, 250, 250);
+}
+.message-body::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,25 @@
+.list-centre{
+ margin-top: 40px;
+ margin-bottom: 20px;
+ padding-left: 20%;
+}
+.list-left{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.user-search{
+    margin: 20px 0px;
+}
+
+.contact-title{
+    margin-bottom: 48px;
+}
+.sml{
+    font-size: 38px;
+}
+.lgs{
+    font-size: 48px;
+}

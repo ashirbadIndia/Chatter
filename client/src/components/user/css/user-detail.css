@@ -1,0 +1,21 @@
+.avatar-extra-large{
+    height: 256px;
+    width: 256px;
+    border-radius: 256px;
+}
+.avatar-large{
+    height: 128px;
+    width: 128px;
+    border-radius: 128px;
+    margin: 10px;
+}
+.center{
+    text-align: center;
+}
+.sml{
+    font-size: 42px;
+    color: rgb(114, 114, 114);
+}
+.lgs{
+    font-size: 48px;
+}

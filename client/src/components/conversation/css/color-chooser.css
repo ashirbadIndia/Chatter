@@ -1,0 +1,49 @@
+.body{
+    margin: 10px 5%;
+}
+.list-item{
+    display: inline-flex;
+    margin: 20px 0px;
+    cursor: pointer;
+}
+.color{
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    margin: 10px;
+    border: 3px solid white;
+}
+.color:hover{
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    border: 0px;
+    filter: brightness(125%);
+}
+.content{
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.default{
+    background: #007aff;
+}
+.brutal-blue{
+    background: #0049B7;
+  }
+.dark-pink{
+    background: #ff1d48;
+  }
+.light-pink{
+    background: #f75990;
+  }
+.purple{
+    background: #800080;
+  }
+.cyan{
+    background: #33ffe9;
+    color: rgb(68, 68, 68);
+  }
+ .green{
+    background: #2de38e;
+  }

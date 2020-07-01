@@ -1,0 +1,19 @@
+.avatar-sm{
+    height: 56px;
+    width: 56px;
+    border-radius: 56px;
+}
+.user-card{
+    text-align: left;
+    cursor: pointer;
+    padding: 25px;
+    padding-bottom: 20px;
+    
+}
+.user-card:hover{
+    background-color: rgb(240, 240, 240);
+    border-radius: 8px;
+}
+.removed:hover{
+    background-color: rgb(255, 209, 215);
+}
