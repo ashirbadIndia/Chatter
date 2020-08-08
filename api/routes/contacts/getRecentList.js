@@ -2,11 +2,10 @@ const User = require('../../models/user');
 
 module.exports = async (req,res,next)=>{
     try{
-
         const myId= req.auth.id;
-        const user = await User.findById(myId).populate('contacts.userId');
+        const user = await User.findById(myId).populate('recents.userId');
         if(user){
-            const contacts = user.contacts.map((item)=>{
+            const recents = user.recents.map((item)=>{
                 if(!item.userId){
                     return {
                         not_exist: true,
@@ -17,18 +16,18 @@ module.exports = async (req,res,next)=>{
                 return {
                     firstName: item.userId.firstName,
                     lastName: item.userId.lastName,
-                    bio: item.userId.bio,
+                    lastMessage: item.lastMessage,
+                    lastMessageTime: item.lastMessageTime,
                     chatId: item.chatId,
                     userId: item.userId.id,
                     id: item.id
                 }
             })
-            console.log(contacts);
             res.json({
                 error:{
                     status: false,
                 },
-                contacts: contacts
+                recents: recents
             });
         }
         else{
@@ -40,25 +39,6 @@ module.exports = async (req,res,next)=>{
             });
         }
         
-        /*const contacts = await Promise.all(
-            result.contacts.map(async (item)=>{
-                const userInfo= await User.findOne({_id: item.userId});
-                if(userInfo){
-                    return {
-                        ...item,
-                        firstName: userInfo.firstName,
-                        lastName: userInfo.lastName,
-                        bio: userInfo.bio
-                    } 
-                }
-                return {
-                    ...item,
-                    removed: true
-                }
-            })
-        );
-        console.log(contacts);
-        res.json(contacts);*/
     }
     catch(error){
         console.log('error:',error);

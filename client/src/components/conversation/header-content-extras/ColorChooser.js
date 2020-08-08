@@ -9,7 +9,7 @@ const colors= ['default','brutal-blue','dark-pink','light-pink','purple','cyan',
 class ColorChooser extends React.Component{
     colorsList = colors.map((color)=>{
         return(
-            <div className="list-item" onClick={()=>{this.props.chatColorChoose(color)}}>
+            <div key={color} className="list-item" onClick={()=>{this.props.chatColorChoose(color)}}>
                 <div className={`color ${color}`}>
                 </div> 
             </div>

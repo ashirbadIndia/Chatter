@@ -6,15 +6,15 @@ import avatar from '../static/avatar.svg';
 import './user/css/user-detail.css';
 import RecentList from './user-list/RecentList';
 import FavouriteList from './user-list/FavouriteList';
-import {syncContacts} from '../actions/contacts';
+import {syncContacts,getRecents} from '../actions/contacts';
 
 class Welcome extends React.Component{
     userName = this.props.auth.user?this.props.auth.user.firstName:"";
     componentDidMount = ()=>{
         if(!this.props.contacts.isSynced){
-            if(this.props.auth.user)
-            this.props.syncContacts(this.props.auth.user.id);
+            this.props.syncContacts(this.props.auth.token);
         }
+        this.props.getRecents(this.props.auth.token);
     }
     getFavourites(){
         if(this.props.contacts.isSynced){
@@ -66,4 +66,4 @@ const mapStateToProps=(state)=>{
     }
 }
 
-export default connect(mapStateToProps,{syncContacts})(Welcome);
+export default connect(mapStateToProps,{syncContacts,getRecents})(Welcome);

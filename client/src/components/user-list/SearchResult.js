@@ -9,7 +9,7 @@ class SearchResults extends React.Component{
     
     createContact = ({id})=>{
         if(!this.props.contacts.find(element => element.id === id)){
-            this.props.addContact(this.props.auth.id,id);
+            this.props.addContact(id,this.props.token);
         }
     }
     renderList = ()=>{
@@ -18,7 +18,7 @@ class SearchResults extends React.Component{
                 <Card key={`${item.userId}`} 
                     firstName={item.firstName}
                     lastName={item.lastName}
-                    bio={item.bio}
+                    info={item.bio}
                     id={item.id}
                     handleClick= {this.createContact}
                 />
@@ -32,6 +32,7 @@ class SearchResults extends React.Component{
             <h1 className="display-4 sml contact-title">Results</h1>
             <div className="list-left">
                 {this.renderList()}
+                <div className='gap'/>
             </div>
             </>
         )
@@ -42,7 +43,8 @@ const mapStateToProps = (state)=>{
     return {
         searchResults : state.searchResults? state.searchResults: [],
         auth: state.auth.user,
-        contacts: state.contacts.all
+        contacts: state.contacts.all,
+        token: state.auth.token
     }
 }
 

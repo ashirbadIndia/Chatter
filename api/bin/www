@@ -5,8 +5,10 @@
  */
 
 var app = require('../app');
+const io = require('../socket.io/index');
 var debug = require('debug')('api:server');
 var http = require('http');
+const { isObject } = require('util');
 
 /**
  * Get port from environment and store in Express.
@@ -24,6 +26,8 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+io.attach(server);
 
 server.listen(port);
 server.on('error', onError);

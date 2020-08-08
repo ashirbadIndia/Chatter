@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 const contactSchema = mongoose.Schema({
-    chatId: {type: mongoose.Types.ObjectId, ref:'Chats'},
-    userId: {type: mongoose.Types.ObjectId, ref: 'User'}
+    chatId: String,
+    userId: {type: mongoose.Types.ObjectId, ref: 'Users'},
+    chatcolor: {type:String, default:'default'}
 })
 const recentSchema = mongoose.Schema({
-    chatId: {type: mongoose.Types.ObjectId, ref:'Chats'},
-    userId: {type: mongoose.Types.ObjectId, ref: 'User'},
+    chatId: String,
+    userId: {type: mongoose.Types.ObjectId, ref: 'Users'},
     lastMessage: String,
     lastMessageTime: { type: Date, default: Date.now }
 })

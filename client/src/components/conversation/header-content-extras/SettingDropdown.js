@@ -23,21 +23,16 @@ class SettingDropdown extends React.Component{
         this.setState({action: 'removeUser'});
         this.handleShow();
     }
-    blockUser=()=>{
-        this.setState({action: 'blockUser'});
-        this.handleShow();
-    }
     render(){
         return(
-            <div class="dropdown">
-                <div class="dropbtn">
+            <div className="dropdown">
+                <div className="dropbtn">
                     <ion-icon name="settings-outline"/>
                 </div>
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                     <div onClick={this.changeColor}>Choose Color</div>
                     <div onClick={this.clearChat}>Clear Chats</div>
                     <div onClick={this.removeUser}>Remove User</div>
-                    <div onClick={this.blockUser}>Block User</div>
                 </div>
                 <ChatAction 
                     show={this.state.modalShow} 

@@ -7,11 +7,10 @@ const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const conversationRouter = require('./routes/conversationRouter');
 const contactsRouter = require('./routes/contacts');
 
 
-const url='mongodb+srv://rw_access:iiMLi3aTDLs4Bh9X@chatter-380nn.gcp.mongodb.net/chattery?retryWrites=true&w=majority';
+const url='mongodb+srv://rw_access:iiMLi3aTDLs4Bh9X@chatter-380nn.gcp.mongodb.net/chat?retryWrites=true&w=majority';
 
 mongoose.connect(
       url,
@@ -30,7 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/chats', conversationRouter);
 app.use('/api/contacts',contactsRouter);
 
 module.exports = app;

@@ -6,6 +6,7 @@ import contacts from './contacts';
 import searchUser from './searchUser';
 import formSubmitErrors from './formSubmitErrors';
 import formSubmitSuccess from './formSubmitSuccess';
+import chatroom from './chatroom';
 
 const chatColor = (state="default", action)=>{
     if(action.type === 'CHAT_COLOR_CHANGE'){
@@ -29,5 +30,6 @@ export default combineReducers({
     formSubmitErrors,
     formSubmitSuccess,
     chatColor,
-    autoLoginStats
+    autoLoginStats,
+    chatRoom: chatroom
 })

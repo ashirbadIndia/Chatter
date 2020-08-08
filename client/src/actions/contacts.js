@@ -1,34 +1,43 @@
 import contacts from '../apis/contacts';
 
-export const syncContacts = (userId) => async (dispatch)=> {
-    const response = await contacts.get(`/${userId}`);
+export const syncContacts = (token) => async (dispatch)=> {
+    const response = await contacts.get('/',{headers: {'Authorization' : `Bearer ${token}`}});
     dispatch({
         type :'SYNC_CONTACTS',
         response: response.data
     })
 }
 
-
-export const addContact = (myId,userId) => async (dispatch)=> {
-    const response = await contacts.post('/',{myId,userId});
-    console.log(response);
+export const getRecents = (token) => async (dispatch)=> {
+    const response = await contacts.get('/recents',{headers: {'Authorization' : `Bearer ${token}`}});
     dispatch({
-        type :'ADD_CONTACT',
-        payload: {
-            result: response.data.result,
-            contact: response.data.contact
-        }
+        type :'GET_RECENTS',
+        response: response.data
     })
 }
 
-export const removeContact = (myId,userId) => async (dispatch)=> {
+
+export const addContact = (userId,token) => async (dispatch)=> {
+    const response = await contacts.post('/',
+                                {contactInfo: {id:userId}},
+                                {headers: {'Authorization' : `Bearer ${token}`}});
+
+    dispatch({
+        type :'ADD_CONTACT',
+        response: response.data
+    })
+}
+
+export const removeContact = (contactInfo,token) => async (dispatch)=> {
+    console.log(contactInfo);
     const response = await contacts.delete('/',{
-        data:{myId,userId}
+        data:{contactInfo},
+        headers: {'Authorization' : `Bearer ${token}`}
     });
-    if(response.data.success){
+    if(!response.data.error.status){
         dispatch({
             type :'REMOVE_CONTACT',
-            contactId: userId
+            contactInfo: contactInfo
         })
     }
     
