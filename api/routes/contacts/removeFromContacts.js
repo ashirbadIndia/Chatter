@@ -9,11 +9,11 @@ module.exports = async (req,res,next)=>{
             //console.log(req.body.contactInfo);
             const result = await User.updateOne(
                 {_id: req.auth.id},
-                { $pull: { contacts: {id: req.body.contactInfo.id } } }
+                { $pull: { contacts: {_id: req.body.contactInfo.id } } }
             )
             /*resp = user.contacts.pull({_id: req.body.contactInfo.id});
             const result = await user.save();*/
-            //console.log(result);
+            console.log(result);
             res.json({
                 error:{
                     status: false

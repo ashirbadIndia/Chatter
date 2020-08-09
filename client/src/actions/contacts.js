@@ -21,11 +21,12 @@ export const addContact = (userId,token) => async (dispatch)=> {
     const response = await contacts.post('/',
                                 {contactInfo: {id:userId}},
                                 {headers: {'Authorization' : `Bearer ${token}`}});
-
-    dispatch({
-        type :'ADD_CONTACT',
-        response: response.data
-    })
+    if(!response.data.error.status){
+        dispatch({
+            type :'ADD_CONTACT',
+            response: response.data
+        })
+    }
 }
 
 export const removeContact = (contactInfo,token) => async (dispatch)=> {
@@ -38,6 +39,35 @@ export const removeContact = (contactInfo,token) => async (dispatch)=> {
         dispatch({
             type :'REMOVE_CONTACT',
             contactInfo: contactInfo
+        })
+    }
+    
+}
+
+export const removeFav = (userId,token) => async (dispatch)=> {
+    console.log('removeFav');
+    const response = await contacts.patch('/',
+        {contactInfo: {userId, favStat: false},action: "FAVOURITE"},
+        {headers: {'Authorization' : `Bearer ${token}`}
+    });
+    if(!response.data.error.status){
+        dispatch({
+            type :'REMOVE_FAV',
+            userId: userId
+        })
+    }
+    
+}
+export const addFav = (userId,token) => async (dispatch)=> {
+    console.log('addFav');
+    const response = await contacts.patch('/',
+        {contactInfo: {userId, favStat: true},action: "FAVOURITE"},
+        {headers: {'Authorization' : `Bearer ${token}`}
+    });
+    if(!response.data.error.status){
+        dispatch({
+            type :'ADD_FAV',
+            userId: userId
         })
     }
     

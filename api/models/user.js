@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const contactSchema = mongoose.Schema({
     chatId: String,
     userId: {type: mongoose.Types.ObjectId, ref: 'Users'},
+    favourite: {type: Boolean, default: false}
 })
 const recentSchema = mongoose.Schema({
     chatId: String,

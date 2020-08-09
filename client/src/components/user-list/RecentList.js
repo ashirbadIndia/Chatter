@@ -8,9 +8,6 @@ import './css/list.css'
 
 class RecentList extends React.Component{
 
-    createContact = ({id})=>{
-        
-    }
     onClick=(props)=>{
         if(!props.not_exist){
             const userId=props.userId;

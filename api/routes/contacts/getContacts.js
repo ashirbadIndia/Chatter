@@ -20,7 +20,8 @@ module.exports = async (req,res,next)=>{
                     bio: item.userId.bio,
                     chatId: item.chatId,
                     userId: item.userId.id,
-                    id: item.id
+                    id: item.id,
+                    favourite: item.favourite
                 }
             })
             console.log(contacts);

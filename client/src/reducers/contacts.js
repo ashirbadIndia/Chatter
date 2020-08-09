@@ -6,7 +6,7 @@ export default (state={isSynced:false},action )=>{
             ...state,
             isSynced: true,
             all: action.response.contacts,
-            favourites: (state.favourites)?state.favourites:[],
+            favourites: action.response.contacts.filter((contact)=>contact.favourite),
             recents: (state.recents)?state.recents:[]
         }
     }
@@ -36,7 +36,6 @@ export default (state={isSynced:false},action )=>{
         }
     }
     if(action.type === 'REMOVE_CONTACT'){
-        console.log('removed',action.contactInfo.id);
         return{
             isSynced: true,
             all: state.all.filter((item)=>{
@@ -45,6 +44,18 @@ export default (state={isSynced:false},action )=>{
             }),
             favourites: state.favourites.filter((item)=>item.id !== action.contactInfo.id),
             recents: state.recents
+        }
+    }
+    if(action.type === "ADD_FAV"){
+        return{
+            ...state,
+            favourites: [...state.favourites, state.all.find((i)=>i.userId===action.userId) ]
+        }
+    }
+    if(action.type === "REMOVE_FAV"){
+        return{
+            ...state,
+            favourites: state.favourites.filter(i => i.userId !== action.userId)
         }
     }
     return state;

@@ -10,12 +10,15 @@ class SearchResults extends React.Component{
     
     createContact = ({id})=>{
         if(!this.props.contacts.find(element => element.userId === id)){
+            console.log('create_contact');
             this.props.addContact(id,this.props.token);
         }
-        const userId=id;
-        const myId= this.props.auth.id;
-        const chatRoomId = (myId >= userId)?`${userId}-${myId}`:`${myId}-${userId}`;
-        history.push(`/chat/${chatRoomId}`);
+        else{
+            const userId=id;
+            const myId= this.props.auth.id;
+            const chatRoomId = (myId >= userId)?`${userId}-${myId}`:`${myId}-${userId}`;
+            history.push(`/chat/${chatRoomId}`);
+        }
     }
     renderList = ()=>{
         return this.props.searchResults.map((item)=>{

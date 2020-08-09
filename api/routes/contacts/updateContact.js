@@ -1,26 +1,49 @@
 const User = require('../../models/user');
+const mongoose = require('mongoose');
 
 module.exports = async (req,res,next)=>{
     try{
-        let result;
-        if(req.body.action === 'BLOCK/UNBLOCK'){
-            result = await User.updateOne(
-                {_id: req.body.currentUser._id, "contacts.userId": req.body.contact.userId},
-                { $set: { "contacts.$.blocked" : req.body.blocked }}
+        if(req.body.action === 'FAVOURITE'){
+            const userId = req.body.contactInfo.userId;
+            const result = await User.updateOne(
+                {"_id": req.auth.id, "contacts.userId": mongoose.Types.ObjectId(userId)},
+                { $set: { "contacts.$.favourite" : req.body.contactInfo.favStat }}
             );
+            console.log(result);
+            if(result.nModified){
+                res.json({
+                    error:{
+                        status: false
+                    },
+                    response: {
+                        status: 'ok'
+                    }
+                });
+            }
+            else{
+                res.json({
+                    error:{
+                        status: true
+                    }
+                });
+            }
         }
-        else if(req.body.action === 'CHANGE_COLOR'){
-            result = await User.updateOne(
-                {_id: req.body.currentUser._id, "contacts.userId": req.body.contact.userId},
-                { $set: { "contacts.$.chatColor" : req.body.color }}
-            );
+        else{
+            res.json({
+                error:{
+                    status: true
+                }
+            });
         }
-        console.log(result);
-        res.json(result);
     }
     catch(error){
         console.log('error:',error);
-        res.json(error);
+        res.json({
+            error:{
+                status: true,
+                errorObj: error
+            }
+        });
     }
     
     
