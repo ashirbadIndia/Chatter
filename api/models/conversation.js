@@ -9,6 +9,8 @@ const convSchema = mongoose.Schema({
 const conversations = mongoose.Schema({
     userOne: {type: mongoose.Types.ObjectId, ref:'Users'},
     userTwo: {type: mongoose.Types.ObjectId, ref:'Users'},
+    colorOne: {type: String, default: 'default'},
+    colorTwo: {type: String, default: 'default'},
     chatId: {type:String, unique:true},
     messages: [convSchema]
 })

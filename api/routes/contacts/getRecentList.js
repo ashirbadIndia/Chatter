@@ -7,11 +7,13 @@ module.exports = async (req,res,next)=>{
         if(user){
             const recents = user.recents.map((item)=>{
                 if(!item.userId){
-                    return {
+                    const response = {
                         not_exist: true,
                         chatId: item.chatId,
                         id: item.id
                     }
+                    item.remove();
+                    return response;
                 }
                 return {
                     firstName: item.userId.firstName,
@@ -23,11 +25,13 @@ module.exports = async (req,res,next)=>{
                     id: item.id
                 }
             })
+            console.log('___recents___',user.recents);
+            await user.save();
             res.json({
                 error:{
                     status: false,
                 },
-                recents: recents
+                recents: recents.filter((item)=>!item.not_exist)
             });
         }
         else{

@@ -3,6 +3,8 @@ const io = require('socket.io')({path: '/api/chats', origins: '*:*'});
 
 const getChats = require('./getChats');
 const addChat = require('./addChat');
+const clearChat = require('./clearChats');
+const changeColor = require('./changeColor');
 
 io.on('connection',(socket)=>{
     console.log(socket.id);
@@ -24,7 +26,8 @@ io.on('connection',(socket)=>{
     });
     socket.on('get_chats',()=>{getChats(socket)});
     socket.on('add_chat',(message)=>{addChat(socket,io,message)});
-    
+    socket.on('clear_chats',()=>{clearChat(socket,io)});
+    socket.on('change_color',(color)=>{changeColor(socket,color)});
 
 });
 

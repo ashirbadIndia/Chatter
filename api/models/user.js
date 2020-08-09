@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const contactSchema = mongoose.Schema({
     chatId: String,
     userId: {type: mongoose.Types.ObjectId, ref: 'Users'},
-    chatcolor: {type:String, default:'default'}
 })
 const recentSchema = mongoose.Schema({
     chatId: String,

@@ -12,6 +12,7 @@ export default (state = {isConnected:false, isSynced:false} ,action)=>{
             ...state,
             isSynced: true,
             userDetail: action.data.userDetail,
+            color: action.data.color,
             myDetail: action.data.myDetail,
             messages: action.data.messages
         }
@@ -20,6 +21,18 @@ export default (state = {isConnected:false, isSynced:false} ,action)=>{
         return {
             ...state,
             messages: [...state.messages, action.response]
+        }
+    }
+    if(action.type === 'CLEAR_CHAT'){
+        return {
+            ...state,
+            messages: []
+        }
+    }
+    if(action.type === 'CHANGE_COLOR'){
+        return {
+            ...state,
+            color: action.color
         }
     }
     else return state;

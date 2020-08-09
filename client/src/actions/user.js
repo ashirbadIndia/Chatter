@@ -110,6 +110,10 @@ export const searchUser = (term) => async (dispatch) => {
         })
 }
 
+export const clearSearch = () => {
+    return { type: "CLEAR_SEARCH" }
+}
+
 
 export const loginWithToken = () => async (dispatch)=>{
     const userData= JSON.parse(localStorage.getItem('userData'));

@@ -29,7 +29,7 @@ export const addContact = (userId,token) => async (dispatch)=> {
 }
 
 export const removeContact = (contactInfo,token) => async (dispatch)=> {
-    console.log(contactInfo);
+    //console.log(contactInfo,token);
     const response = await contacts.delete('/',{
         data:{contactInfo},
         headers: {'Authorization' : `Bearer ${token}`}

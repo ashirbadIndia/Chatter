@@ -36,10 +36,14 @@ export default (state={isSynced:false},action )=>{
         }
     }
     if(action.type === 'REMOVE_CONTACT'){
+        console.log('removed',action.contactInfo.id);
         return{
             isSynced: true,
-            all: state.all.filter((item)=>item.id !== action.contactInfo.id),
-            favourites: state.all.filter((item)=>item.id !== action.contactInfo.id),
+            all: state.all.filter((item)=>{
+                console.log(item);
+                return item.id !== action.contactInfo.id
+            }),
+            favourites: state.favourites.filter((item)=>item.id !== action.contactInfo.id),
             recents: state.recents
         }
     }

@@ -1,4 +1,5 @@
 const User = require('../../models/user');
+const Chats = require('../../models/conversation');
 const bcrypt = require('bcryptjs');
 
 module.exports = async (req,res,next)=>
@@ -17,6 +18,9 @@ module.exports = async (req,res,next)=>
             const pass_match = await bcrypt.compare(req.body.validation.password, user.password);
             if(pass_match){
                 const response = await User.deleteOne({_id: req.auth.id}).exec();
+                const res1 = await Chats.deleteMany({userOne: req.auth.id}).exec();
+                const res2 = await Chats.deleteMany({userTwo: req.auth.id}).exec();
+                console.log(res1,res2);
                 if(response.deletedCount<1){
                     res.json({
                         error: {

@@ -8,13 +8,6 @@ import formSubmitErrors from './formSubmitErrors';
 import formSubmitSuccess from './formSubmitSuccess';
 import chatroom from './chatroom';
 
-const chatColor = (state="default", action)=>{
-    if(action.type === 'CHAT_COLOR_CHANGE'){
-        return action.color;
-    }
-    else return state;
-}
-
 const autoLoginStats = (state="pending", action)=>{
     if(action.type === 'LOG_IN_WITH_TOKEN'){
         return "resolved"
@@ -29,7 +22,6 @@ export default combineReducers({
     contacts: contacts,
     formSubmitErrors,
     formSubmitSuccess,
-    chatColor,
     autoLoginStats,
     chatRoom: chatroom
 })

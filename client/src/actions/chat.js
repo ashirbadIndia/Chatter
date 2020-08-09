@@ -22,7 +22,8 @@ export const socketConnect = (chatRoomId,token) => (dispatch)=>{
                     data:{
                         userDetail: response.userDetail,
                         messages: response.messages,
-                        myDetail: response.myDetail
+                        myDetail: response.myDetail,
+                        color: response.color
                     }
                 })
             })
@@ -34,6 +35,11 @@ export const socketConnect = (chatRoomId,token) => (dispatch)=>{
                     response: response
                 })
             });
+            socket.on('chat_cleared',(response)=>{
+                    dispatch({
+                        type: "CLEAR_CHAT"
+                    })
+            })
             
         })
     }
@@ -63,4 +69,21 @@ export const addChat = (message) => async (dispatch)=>{
         await socket.emit('add_chat',message);
     }
     dispatch({type: "NOTHING"});
+}
+
+export const clearChat = () => async (dispatch)=>{
+    if(socket.connected){
+        await socket.emit('clear_chats');
+    }
+    dispatch({type: "NOTHING"});
+}
+
+export const changeColor = (color) => async (dispatch)=>{
+    if(socket.connected){
+        await socket.emit('change_color',color);
+        dispatch({
+            type: "CHANGE_COLOR",
+            color: color
+        })
+    }
 }

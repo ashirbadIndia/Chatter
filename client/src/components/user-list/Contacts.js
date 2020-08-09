@@ -5,7 +5,7 @@ import {Container, Jumbotron} from 'react-bootstrap';
 import ContactList from './ContactList';
 import SearchResults from './SearchResult';
 import {syncContacts} from '../../actions/contacts';
-import {searchUser} from '../../actions/user'
+import {searchUser,clearSearch} from '../../actions/user'
 import './css/list.css'
 
 
@@ -46,6 +46,9 @@ class Contacts extends React.Component{
             if(this.props.auth.user)
             this.props.syncContacts(this.props.auth.user.id);
         }
+    }
+    componentWillUnmount = () =>{
+        this.props.clearSearch()
     }
     render(){
         return(
@@ -93,4 +96,4 @@ const mapStateToProps = (state)=>{
     }
 }
 
-export default connect(mapStateToProps,{syncContacts,searchUser})(Contacts);
+export default connect(mapStateToProps,{syncContacts,searchUser,clearSearch})(Contacts);

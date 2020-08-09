@@ -17,7 +17,11 @@ export default (props)=>{
                 <Button variant="secondary" onClick={props.handleClose}>
                     No
                 </Button>
-                <Button variant="danger" onClick={props.handleClose}>
+                <Button variant="danger" onClick={()=>{
+                            props.action()
+                            props.handleClose()
+                        }
+                    }>
                     Yes
                 </Button>
                 </>

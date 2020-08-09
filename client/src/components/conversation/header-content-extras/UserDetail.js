@@ -3,47 +3,59 @@ import {Modal,Button} from 'react-bootstrap';
 
 import avatar from '../../../static/avatar.svg'
 import '../css/user-detail.css';
+import { connect } from 'react-redux';
 
-export default (props)=>{
+class userDetail extends React.Component{
+    render(){
+
     return(
         <>
+        
             <Modal
-                {...props}
+                show = {this.props.show}
+                onHide = {this.props.onHide}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 >
-                <Modal.Header closeButton>
+                <Modal.Header closeButton >
                     <div className="m-header">
                         <div className="center">
                             <img src={avatar} className="avatar-medium" alt="user"/>
-                            <h3>User Name</h3>
-                            <p>User Bio</p>
+                            <h3>{`${this.props.userdetail.firstName} ${this.props.userdetail.lastName}`}</h3>
+                            <p>{this.props.userdetail.bio}</p>
                         </div>
                     </div>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="details">
                         <h5>
-                            Username:
-                        </h5>
-                        <p>
-                            user420
-                        </p>
-                    </div>
-                    <div className="details">
-                        <h5>
                             Email Id:
                         </h5>
                         <p>
-                            user@email.com
+                            {this.props.userdetail.emailId}
                         </p>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={props.onHide}>Close</Button>
+                    <Button onClick={this.props.onHide}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </>
     )
+    }
 }
+
+
+const mapStateToProps = (state,props)=>{
+    return {
+        userdetail: state.chatRoom.userDetail? state.chatRoom.userDetail:{
+            firstName:'',
+            lastName:'',
+            bio:'',
+            emailId:''
+        }
+    }
+}
+
+export default connect(mapStateToProps)(userDetail);

@@ -17,7 +17,7 @@ class ConversationBody extends React.Component{
                         isMine={this.props.chatRoom.myDetail._id === item.author?true:false /*true false*/}
                         pos='start'
                         messageBody={item.message}
-                        color={this.props.chatColor}
+                        color={this.props.chatRoom.color}
                         key={item._id}
                         />
                 )
@@ -40,7 +40,6 @@ class ConversationBody extends React.Component{
 
 const mapStateToProps=(state)=>{
     return{
-        chatColor: state.chatColor,
         chatRoom: state.chatRoom
     }
 }

@@ -3,14 +3,19 @@ import {connect} from 'react-redux';
 
 import Card from './Card'
 import {addContact} from '../../actions/contacts'
+import history from '../../other/history'
 import './css/list.css'
 
 class SearchResults extends React.Component{
     
     createContact = ({id})=>{
-        if(!this.props.contacts.find(element => element.id === id)){
+        if(!this.props.contacts.find(element => element.userId === id)){
             this.props.addContact(id,this.props.token);
         }
+        const userId=id;
+        const myId= this.props.auth.id;
+        const chatRoomId = (myId >= userId)?`${userId}-${myId}`:`${myId}-${userId}`;
+        history.push(`/chat/${chatRoomId}`);
     }
     renderList = ()=>{
         return this.props.searchResults.map((item)=>{
