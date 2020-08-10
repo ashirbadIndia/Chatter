@@ -11,10 +11,18 @@ class ConversationField extends React.Component{
   }
   onSubmit= (e)=>{
     e.preventDefault();
-    this.props.addChat(this.state.text);
+    const message = this.state.text;
+    this.setState({text: ''});
+    if(message){
+      this.props.addChat(message);
+    }
   }
   onClick= (e)=>{
-    this.props.addChat(this.state.text);
+    const message = this.state.text;
+    this.setState({text: ''});
+    if(message){
+      this.props.addChat(message);
+    }
   }
   render() {
     return(

@@ -39,7 +39,6 @@ export default (state={isSynced:false},action )=>{
         return{
             isSynced: true,
             all: state.all.filter((item)=>{
-                console.log(item);
                 return item.id !== action.contactInfo.id
             }),
             favourites: state.favourites.filter((item)=>item.id !== action.contactInfo.id),

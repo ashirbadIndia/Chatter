@@ -40,7 +40,7 @@ class Header extends React.Component{
     render(){
         return(
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Chatter</Navbar.Brand>
+                <Navbar.Brand href="#welcome">Chatter</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Link className="nav-link active" to="/welcome">Home</Link>
                     <Link className="nav-link active" to="/contacts">Contacts</Link>

@@ -117,7 +117,9 @@ export const clearSearch = () => {
 
 export const loginWithToken = () => async (dispatch)=>{
     const userData= JSON.parse(localStorage.getItem('userData'));
+    console.log(userData);
     const token= userData ? userData.token : null;
+    console.log(token);
     if(!token){
         dispatch({
             type: 'LOG_IN_WITH_TOKEN',
@@ -133,9 +135,20 @@ export const loginWithToken = () => async (dispatch)=>{
         const response = await user.get('/auth',{
             headers: {'Authorization' : `Bearer ${token}`}
         });
+        console.log(response);
         if(response.data.error.status){
             localStorage.clear();
         }
+        /*else{
+            localStorage.clear();
+            localStorage.setItem(
+            'userData',
+            JSON.stringify({
+                userId: response.data.userInfo.id,
+                token: response.data.token
+            })
+            )
+        }*/
         dispatch({
             type: 'LOG_IN_WITH_TOKEN',
             response: {...response.data, token: token}

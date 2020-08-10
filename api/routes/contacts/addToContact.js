@@ -13,6 +13,11 @@ module.exports = async (req,res,next)=>{
                 const sess = await mongoose.startSession();
                 sess.startTransaction();
                 const chatId = (myId >= userId)?`${userId}-${myId}`:`${myId}-${userId}`;
+                const contact_exist = user.contacts.find((i) => i.chatId === chatId);
+                if(contact_exist){
+                    console.log('contact_exist');
+                    throw new Error('contact_exist');
+                }
                 user.contacts.push({
                     chatId: chatId,
                     userId: new mongoose.Types.ObjectId(userId)
