@@ -1,4 +1,5 @@
 const User = require('../../models/user');
+const jwt= require('jsonwebtoken');
 
 module.exports = async (req,res,next)=>{
     try{
@@ -13,6 +14,10 @@ module.exports = async (req,res,next)=>{
                 });
             }
             else{
+            	const newToken = await jwt.sign({emailId:user.emailId, id: user.id},'privacy_is_a_myth',{expiresIn: '12h'});
+                        if(!newToken){
+                            throw new Error('Token generation failed');
+                        }
                 const userInfo = {
                     firstName: user.firstName,
                     lastName: user.lastName,
@@ -25,7 +30,8 @@ module.exports = async (req,res,next)=>{
                         status: false,
                         message: 'Success'
                     },
-                    userInfo
+                    userInfo,
+                    token: newToken
                 });
             }
         }

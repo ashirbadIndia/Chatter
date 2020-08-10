@@ -90,6 +90,11 @@ export const searchUser = (term) => async (dispatch) => {
                 }
             });
         }
+        else if(term === '*'){
+            result = await user.get('/',{
+                params: {}
+            })
+        }
         else{
             const names = term.split(" ").filter((ele)=>ele);
             var search;
@@ -139,7 +144,7 @@ export const loginWithToken = () => async (dispatch)=>{
         if(response.data.error.status){
             localStorage.clear();
         }
-        /*else{
+        else{
             localStorage.clear();
             localStorage.setItem(
             'userData',
@@ -148,10 +153,10 @@ export const loginWithToken = () => async (dispatch)=>{
                 token: response.data.token
             })
             )
-        }*/
+        }
         dispatch({
             type: 'LOG_IN_WITH_TOKEN',
-            response: {...response.data, token: token}
+            response: {...response.data, token: response.data.token}
         });
     }
     
