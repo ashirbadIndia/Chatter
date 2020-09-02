@@ -4,9 +4,10 @@ MERN Chat app
 Check it here
 https://chatter-ashirbadindia.herokuapp.com/
 Please inform me if you find any errors.
+Email: ashirbad.behera.india@gmail.com
 
 Features Implemented:
-- User Create, Delete, Edit
+- Create, Delete, Edit an User
 - User Authentication using JWT
 - Contacts list, Recent Chats list (With CURD operations)
 - Chatrooms for 2 persons (Using Socket.IO)
