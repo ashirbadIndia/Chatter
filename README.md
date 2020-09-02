@@ -51,15 +51,15 @@ Client: Built using react-redux
                       autoLoginStats 
 
 
-API/SERVER:  REST API built using Express.JS, Socket.IO 
+API/SERVER:&nbsp;&nbsp;&nbsp;&nbsp;REST API built using Express.JS, Socket.IO 
 
-  - Routes:      file-path- /routes/ <br>
-     /api/users      REST API for managing users<br>
-     /api/contacts   REST API for managing contact-list<br>
+  - Routes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file-path-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/routes/ <br>
+     &nbsp;&nbsp;&nbsp;&nbsp;/api/users&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REST API for managing users<br>
+     &nbsp;&nbsp;&nbsp;&nbsp;/api/contacts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REST API for managing contact-list<br>
    
   - Database:
-     Users Collection: 
-     
+ 
+        Users Collection:
             Main Mongoose Schema:
                   mongoose.Schema({
                       firstName: {type: String, required: true},
@@ -107,7 +107,6 @@ API/SERVER:  REST API built using Express.JS, Socket.IO
                               date: { type: Date, default: Date.now }
                           })
                           
-  
 To Do:  
 - Image Upload
 - Last active status implementation
