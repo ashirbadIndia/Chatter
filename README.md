@@ -15,7 +15,7 @@ Features Implemented:
 Descriptions:
 
 Client: Built using react-redux
- -   Client-side Routing - Uses Hash Router for basic routes
+ -   Client-side Routing - Uses React-Router for basic routing
  
                     path='/'             component=/components/Root.js 
                     path='/login'        component=/components/user/Login 
