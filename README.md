@@ -2,9 +2,9 @@
 MERN Chat app
 
 Check it here
-https://chatter-ashirbadindia.herokuapp.com/
-Please inform me if you find any errors.
-Email: ashirbad.behera.india@gmail.com
+https://chatter-ashirbadindia.herokuapp.com/ <br>
+Please inform me if you find any errors. <br>
+Email: ashirbad.behera.india@gmail.com<br>
 
 Features Implemented:
 - Create, Delete, Edit an User
