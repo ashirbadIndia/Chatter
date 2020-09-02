@@ -53,9 +53,9 @@ Client: Built using react-redux
 
 API/SERVER:  REST API built using Express.JS, Socket.IO 
 
-  - Routes:      file-path- /routes/
-     /api/users      REST API for managing users
-     /api/contacts   REST API for managing contact-list
+  - Routes:      file-path- /routes/ <br>
+     /api/users      REST API for managing users<br>
+     /api/contacts   REST API for managing contact-list<br>
    
   - Database:
      Users Collection: 
