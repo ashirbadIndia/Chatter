@@ -27,17 +27,17 @@ Client: Built using react-redux
                     path='/chat/:id'     component=/components/conversation/Conversations 
   -   COMPONENTS dir- /components/ 
   
-                      Root.js     Redirects the page to proper route based on authontication stats 
-                      /users/     Contain components related to User, Login, CreateUser, Delete, Edit 
-                      /user-list/ Contains components related to Contacts, Recent-list, Search-list 
-                      /conversation/ Related to chatroom 
+                      Root.js        Redirects the page to proper route based on authontication stats 
+                      /users/        Contain components related to User, Login, CreateUser, Delete, Edit 
+                      /user-list/    Contains components related to Contacts, Recent-list, Search-list 
+                      /conversation/  Related to chatroom 
   -   /api/   axios custom templates
   -   ACTIONS  - REDUX actions  path /actions/ 
   
                   All api calls are defined here 
-                  chat.js        Related to chats, create connection to SOCKET 
-                  contact.js     Modifies contact and recent list, Makes Http request to the server (/api/contacts/) 
-                  user.js        Handles Login, Logout, User CURD operations, Makes HTTP request to the server (/api/users/) 
+                  chat.js            Related to chats, create connection to SOCKET 
+                  contact.js         Modifies contact and recent list, Makes Http request to the server (/api/contacts/) 
+                  user.js            Handles Login, Logout, User CURD operations, Makes HTTP request to the server (/api/users/) 
   -   REDUCERS - REDUX Reducers  path /reducers/ 
   
                   REDUX STORE DESCRIPTION 
@@ -83,9 +83,12 @@ API/SERVER:  REST API built using Express.JS, Socket.IO
                       lastMessage: String,
                       lastMessageTime: { type: Date, default: Date.now }
                   })
-                         chatId is a string, basically a unique identifier for a chatroom
-                                 chatId - 'user-one-Id' + '-' + 'user-two-Id'
-                                 where    user-one-Id < user-two-id
+
+
+                  <!--  chatId is a string, basically a unique identifier for a chatroom
+                             chatId - 'user-one-Id' + '-' + 'user-two-Id'
+                             where    user-one-Id < user-two-id
+                  -->
                     
         Chats Collection:
                 Main Mongoose Schema: 
