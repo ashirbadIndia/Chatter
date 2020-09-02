@@ -7,7 +7,7 @@ Please inform me if you find any errors. <br>
 Email: ashirbad.behera.india@gmail.com<br>
 
 Features Implemented:
-- Create, Delete, Edit an User
+- Create, Delete, Edit a User Account
 - User Authentication using JWT
 - Contacts list, Recent Chats list (With CURD operations)
 - Chatrooms for 2 persons (Using Socket.IO)
