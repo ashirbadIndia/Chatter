@@ -10,7 +10,7 @@ Features Implemented:
 - Create, Delete, Edit a User Account
 - User Authentication using JWT
 - Contacts list, Recent Chats list (With CURD operations)
-- Chatrooms for 2 persons (Using Socket.IO)
+- Chatrooms for 2 persons (Uses Socket.IO)
 
 Descriptions:
 
