@@ -1,5 +1,5 @@
 # Chatter
-MERN Chat app
+Chat app based on MERN Stack
 
 Check it here
 https://chatter-ashirbadindia.herokuapp.com/ <br>
@@ -9,7 +9,7 @@ Email: ashirbad.behera.india@gmail.com<br>
 Features Implemented:
 - Create, Delete, Edit a User Account
 - User Authentication using JWT
-- Contacts list, Recent Chats list (With CURD operations)
+- Contacts list, Recent Chats list (With CRUD operations)
 - Chatrooms for 2 persons (Uses Socket.IO)
 
 Descriptions:
