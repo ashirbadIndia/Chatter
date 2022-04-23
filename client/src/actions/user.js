@@ -80,35 +80,13 @@ export const editPassword = (update,token) => async (dispatch) =>{
 }
 
 export const searchUser = (term) => async (dispatch) => {
-        // eslint-disable-next-line
-        const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var result;
-        if(mailformat.test(term)){
-            result = await user.get('/',{
-                params: {
-                    emailId: term
-                }
-            });
-        }
-        else if(term === '*'){
-            result = await user.get('/',{
-                params: {}
-            })
-        }
-        else{
-            const names = term.split(" ").filter((ele)=>ele);
-            var search;
-            if(names.length === 2){
-                search = {
-                    firstName: names[0],
-                    lastName: names[1]
-                }
+
+        var result = await user.get('/',{
+            params: {
+                term: term
             }
-            else search = { firstName: names[0]}
-            result = await user.get('/',{
-                params: search
-            })
-        }
+        });
+        
         dispatch({
             type: 'SEARCH_USER',
             results: result.data
