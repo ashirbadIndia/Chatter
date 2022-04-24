@@ -10,7 +10,7 @@ const usersRouter = require('./routes/users');
 const contactsRouter = require('./routes/contacts');
 
 
-const url='mongodb+srv://rw_access:iiMLi3aTDLs4Bh9X@chatter-380nn.gcp.mongodb.net/CHATDB?retryWrites=true&w=majority';
+const url='mongodb+srv://rw_access:iiMLi3aTDLs4Bh9X@chatter-380nn.gcp.mongodb.net/CHAD?retryWrites=true&w=majority';
 
 mongoose.connect(
       url,
