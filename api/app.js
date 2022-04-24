@@ -5,7 +5,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const indexRouter = require('./routes/index');
+//const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const contactsRouter = require('./routes/contacts');
 
@@ -25,10 +25,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/contacts',contactsRouter);
+
+app.get('/*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'client', 'index.html'));
+    });
 
 module.exports = app;
