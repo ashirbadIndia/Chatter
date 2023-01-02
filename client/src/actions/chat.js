@@ -4,7 +4,7 @@ let socket={};
 
 export const socketConnect = (chatRoomId,token) => (dispatch)=>{
     if(!socket.connected){
-        socket = io('http://localhost:4000/',{path:'/api/chats'});
+        socket = io('/',{path:'/api/chats'});
         socket.on('connect',()=>{
             socket.emit('authorization',{token:token,chatRoomId:chatRoomId});
             socket.on('verify',(stat)=>{

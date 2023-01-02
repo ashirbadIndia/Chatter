@@ -9,9 +9,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const contactsRouter = require('./routes/contacts');
 
-
-const url='mongodb+srv://rw_access:iiMLi3aTDLs4Bh9X@chatter-380nn.gcp.mongodb.net/CHAD?retryWrites=true&w=majority';
-
+const mong_user = process.env.MONGO_USERNAME;
+const mong_pass = process.env.MONGO_PASSWORD;
+const url= 'mongodb://mongo:27017/CHAT?retryWrites=false';
 mongoose.connect(
       url,
       { useNewUrlParser: true,  useUnifiedTopology: true }

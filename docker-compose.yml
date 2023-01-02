@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  client:
+    environment:
+      - SERVER_PORT=4000
+    build:
+        dockerfile: Dockerfile
+        context: ./client
+    stdin_open: true
+  api:
+    environment:
+      PORT: 4000
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: password
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+  mongo:
+    image: mongo
+    restart: always
+  nginx:
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 8000:80
+  
